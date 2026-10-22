@@ -1,5 +1,5 @@
 // @ts-nocheck
-// cache-bust v3
+// UNIQUE-CACHE-BUST-20261022-1605
 import React, { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import heroVideo from '../assets/hero-video.mp4';
@@ -15,7 +15,7 @@ export default function Hero() {
     return () => { cancelled = true; };
   }, []);
   return (
-    <section id="home" className="relative min-h-[100svh] w-full overflow-x-clip bg-[#991b1b]">
+    <section id="home" className="relative min-h-[100svh] w-full overflow-x-clip bg-[#991b1b]" data-version="v4-clean">
       <video autoPlay loop muted playsInline preload="metadata" poster={heroPoster} className="absolute inset-0 z-0 h-full w-full object-cover" aria-label="CodeXViber animated logo backdrop">
         <source src={heroVideo} type="video/mp4" />
       </video>
