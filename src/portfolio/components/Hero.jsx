@@ -1,4 +1,5 @@
 // @ts-nocheck
+// cache-bust: 2026-10-22-v2
 import React, { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import heroVideo from '../assets/hero-video.mp4';
