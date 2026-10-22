@@ -1,6 +1,5 @@
 // @ts-nocheck
 import ThemeToggle from './ThemeToggle';
-import { bindSmoothAnchors } from '../smooth-scroll';
 import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
@@ -18,8 +17,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => bindSmoothAnchors(), []);
 
   const navLinks = ['Home', 'About', 'Expertise', 'Skills', 'Projects', 'Contact'];
   const topText = isOpen || !isScrolled ? 'text-white' : 'text-gray-900 dark:text-white';
