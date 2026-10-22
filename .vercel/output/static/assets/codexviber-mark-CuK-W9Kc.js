@@ -1,0 +1,1 @@
+var e=`/assets/codexviber-mark-D3Oha4ri.png`;export{e as t};

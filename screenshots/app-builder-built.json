@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "AADITYA. | Portfolio",
+      "hasCanvas": false,
+      "bodyTextLen": 3446,
+      "bodyTextHash": "d172efd8d8be63f99a7002ea3c66ced1006ea8753b8e8e1f36d7b31d5462003b",
+      "bodyTextPrefix": "AADITYA. AADITYA. AADITYA . Home About Expertise Skills Projects",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "AADITYA. | Portfolio",
+      "hasCanvas": false,
+      "bodyTextLen": 3418,
+      "bodyTextHash": "2765032cf5dc466bc2f2f8a7905349c8af17564b70a621760a43149b0c379afd",
+      "bodyTextPrefix": "AADITYA. AADITYA. AADITYA . Light Dark Home About Expertise Skil",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
