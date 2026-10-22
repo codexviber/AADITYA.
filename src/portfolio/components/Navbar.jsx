@@ -1,6 +1,5 @@
 // @ts-nocheck
 import ThemeToggle from './ThemeToggle';
-import DownloadCv from './DownloadCv';
 import { bindSmoothAnchors } from '../smooth-scroll';
 import React, { useState, useEffect } from 'react';
 
@@ -86,13 +85,6 @@ const Navbar = () => {
             >
               Let’s Connect
             </a>
-            <DownloadCv
-              className={`inline-flex min-h-11 items-center gap-2 rounded-full px-5 py-2.5 text-sm transition-all duration-500 ${
-                isScrolled
-                  ? 'border border-gray-300 text-gray-800 hover:border-gray-900 hover:text-gray-900 dark:border-white/20 dark:text-gray-100 dark:hover:border-white'
-                  : 'border border-white/40 text-white hover:bg-white/10'
-              }`}
-            />
           </div>
 
           <button
@@ -129,9 +121,6 @@ const Navbar = () => {
             </a>
           ))}
           <div className="flex flex-col gap-4 pt-2">
-            <DownloadCv
-              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/70 bg-black/15 px-6 py-3 text-center text-sm font-bold text-white transition-all duration-300 hover:bg-white hover:text-[#ff2a2a]"
-            />
             <a href="/projects" className="w-full rounded-full border border-white/50 px-6 py-3 text-center text-white transition-all duration-300 hover:bg-white hover:text-[#ff2a2a]">
               All Projects
             </a>

@@ -1,6 +1,5 @@
 import React from 'react';
 import adminGear from '../assets/brand/admin-gear.png';
-import DownloadCv from './DownloadCv';
 
 export default function Footer() {
   return (
@@ -9,10 +8,8 @@ export default function Footer() {
         <p className="text-sm text-white/85">Ideas → Code → Impact</p>
         <nav aria-label="Footer links" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-white/90">
           <a className="hover:underline" href="mailto:aaditya37codex@gmail.com">Email</a>
-          <a className="hover:underline" href="https://wa.me/919201109621" target="_blank" rel="noreferrer">WhatsApp</a>
           <a className="hover:underline" href="https://www.instagram.com/code.x.viber/" target="_blank" rel="noreferrer">Instagram</a>
           <a className="hover:underline" href="/projects">Projects</a>
-          <DownloadCv className="inline-flex min-h-11 items-center gap-2 font-semibold hover:underline" />
           <a
             href="/admin"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white"

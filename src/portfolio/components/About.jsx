@@ -4,7 +4,6 @@ import stackImage from '../assets/about/aaditya-photo.jpg';
 import reactImage from '../assets/about/react.png';
 import nodeImage from '../assets/about/node.png';
 import mongoImage from '../assets/about/mongodb.png';
-import DownloadCv from './DownloadCv';
 
 const About = () => {
   return (
@@ -47,7 +46,6 @@ const About = () => {
           <p className="mb-8 max-w-3xl text-base leading-relaxed text-red-50 sm:text-lg">
             Hi, my name is <span className="mx-1 text-lg font-bold uppercase tracking-wide text-black sm:text-xl">Aaditya Srivastava</span>, founder of CodeXViber — a developer and creator who builds modern websites, AI-powered tools and presentations that turn ideas into digital reality.
           </p>
-          <DownloadCv className="inline-flex min-h-12 items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-black" />
 
           {/* Horizontal Skills Row (Transparent & Large) */}
           <div className="mt-10 flex flex-wrap items-center gap-6 sm:gap-10">

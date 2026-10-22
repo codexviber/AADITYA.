@@ -1,32 +1,41 @@
 // @ts-nocheck
-/** Eased in-page scrolling. Cancels if the visitor scrolls themselves. */
-export function bindSmoothAnchors() {
-  let raf = 0;
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
+
+/** Smooth scroll with Lenis + eased anchor jumps. Cancels if the visitor scrolls themselves. */
+export function initSmoothScroll() {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Keep existing anchor binding but use Lenis for scroll
+  let rafId = 0;
   const cancel = () => {
-    if (raf) cancelAnimationFrame(raf);
-    raf = 0;
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = 0;
+    lenis.stop();
   };
 
   const scrollToY = (y) => {
     cancel();
-    const target = Math.max(0, y);
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
-      window.scrollTo(0, target);
-      return;
-    }
-    const start = window.scrollY;
-    const dist = target - start;
-    if (Math.abs(dist) < 2) return;
-    const duration = Math.min(1100, Math.max(560, Math.abs(dist) * 0.48));
-    const t0 = performance.now();
-    const ease = (t) => 1 - (1 - t) ** 4;
-    const step = (now) => {
-      const p = Math.min(1, (now - t0) / duration);
-      window.scrollTo(0, start + dist * ease(p));
-      raf = p < 1 ? requestAnimationFrame(step) : 0;
-    };
-    raf = requestAnimationFrame(step);
+    lenis.start();
+    lenis.scrollTo(y, {
+      duration: Math.min(1.1, Math.max(0.56, Math.abs(y - window.scrollY) * 0.00048)),
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+    });
   };
 
   const onClick = (event) => {
@@ -54,10 +63,17 @@ export function bindSmoothAnchors() {
   document.addEventListener('click', onClick);
   window.addEventListener('wheel', cancel, { passive: true });
   window.addEventListener('touchstart', cancel, { passive: true });
+
   return () => {
     cancel();
+    lenis.destroy();
     document.removeEventListener('click', onClick);
     window.removeEventListener('wheel', cancel);
     window.removeEventListener('touchstart', cancel);
   };
+}
+
+// Backward compat
+export function bindSmoothAnchors() {
+  return initSmoothScroll();
 }

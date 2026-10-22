@@ -11,10 +11,17 @@ import Contact from "@/portfolio/components/Contact";
 import Footer from "@/portfolio/components/Footer";
 import Process from "@/portfolio/components/Process";
 import HireStrip from "@/portfolio/components/HireStrip";
+import { useEffect } from "react";
+import { initSmoothScroll } from "@/portfolio/smooth-scroll";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
+  useEffect(() => {
+    const cleanup = initSmoothScroll();
+    return cleanup;
+  }, []);
+
   return (
     <>
       <Preloader />
