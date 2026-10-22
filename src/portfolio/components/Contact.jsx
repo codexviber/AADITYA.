@@ -12,7 +12,7 @@ export default function Contact(){
     const key=import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
     if(key){try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:key,name:form.name,email:form.email,message:form.message})});const d=await r.json();if(d.success)ok=true;else lastErr=d.message||lastErr;}catch(err){lastErr=err.message||lastErr;}}
     if(ok){setStatus('Thanks! Your message has been sent.');setForm({name:'',email:'',message:''});}
-    else setStatus(lastErr?'Message could not be sent. Please use WhatsApp or email below.':'The message form is not configured yet. You can contact me using WhatsApp or email below.');}
+    else setStatus(lastErr?'Message could not be sent. Please use email below.':'The message form is not configured yet. You can contact me using email below.');}
   const ref=useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end','end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['-20%', '30%']);
@@ -30,7 +30,6 @@ export default function Contact(){
             <textarea name="message" value={form.message} onChange={onChange} required rows={4} placeholder="Type your message here" className="w-full resize-none border-b border-white/60 bg-transparent pb-3 text-base text-white outline-none placeholder:text-white/80 focus:border-white sm:text-xl md:text-2xl" />
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
               <button type="submit" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-black hover:text-white">Send message ↗</button>
-              <a href="https://wa.me/919201109621?text=Hi%20Aaditya%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/70 px-6 py-3 text-center text-sm font-bold transition hover:bg-white/15">Chat on WhatsApp ↗</a>
             </div>
             {status && <p className="text-sm font-semibold" role="status">{status}</p>}
           </form>
